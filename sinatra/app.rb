@@ -1,8 +1,16 @@
 require 'sinatra'
 require 'redis'
 
-if ENV['REDIS_PORT_6379_TCP_ADDR']
-  redis = Redis.new host: ENV['REDIS_PORT_6379_TCP_ADDR'], port: ENV['REDIS_PORT_6379_TCP_PORT']
+def resolv_redis?
+  ENV['REDIS_PORT_6379_TCP_ADDR'] || system('ping redis -c 5')
+end
+
+def redis_host
+  ENV['REDIS_PORT_6379_TCP_ADDR'] || 'redis'
+end
+
+if resolv_redis?
+  redis = Redis.new host: redis_host, port: 6379
 
   get '/' do
     @messages = redis.lrange :messages, 0, 9

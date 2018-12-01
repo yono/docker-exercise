@@ -1,0 +1,17 @@
+version: '2'
+services:
+  redis:
+    image: redis:5
+    ports:
+      - "16379:6379"
+    volumes:
+      - ./data:/data
+  web:
+    build: .
+    command: ruby /sinatra/app.rb -o 0.0.0.0
+    volumes:
+      - ./sinatra:/sinatra
+    ports:
+      - "4567:4567"
+    depends_on:
+      - redis
