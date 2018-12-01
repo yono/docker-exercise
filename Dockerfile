@@ -1,7 +1,8 @@
 FROM ruby:2.5.3
 ENV LANG C.UTF-8
-ADD ./src /sinatra
+RUN mkdir /sinatra
 WORKDIR /sinatra
-RUN gem install bundler
+ADD ./sinatra/Gemfile /sinatra/Gemfile
 RUN bundle install
+ADD ./sinatra /sinatra
 EXPOSE 4567
