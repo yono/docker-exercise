@@ -15,12 +15,12 @@ dockerで簡単なWebアプリを動かす
 ```console
 $ git clone https://github.com/yono/docker-exercise
 $ cd docker-exercise
-$ docker build . -t sinatra:latest
+$ docker build . -t yono05/sinatra:latest
 ```
 
 sinatra だけで動かす
 ```console
-$ docker run --volume $PWD/sinatra:/sinatra --publish 4567:4567 sinatra:latest ruby /sinatra/app.rb -o 0.0.0.0
+$ docker run --volume $PWD/sinatra:/sinatra --publish 4567:4567 yono05/sinatra:latest ruby /sinatra/app.rb -o 0.0.0.0
 ```
 
 redis と組み合わせて動かす
