@@ -7,6 +7,15 @@ dockerで簡単なWebアプリを動かす
 
 参考資料: http://bekkopen.github.io/docker-workshop
 
+## Installation
+
+- Docker
+- docker-compose
+
+### Mac
+
+Docker, docker-compose: https://docs.docker.com/docker-for-mac/install/
+
 ## Usage
 
 ### docker-compose を使わず、docker コマンドのみで動かす場合
@@ -31,4 +40,6 @@ $ docker run --volume $PWD/sinatra:/sinatra --publish 4567:4567 --link="redis:re
 
 ### docker-compose を使う場合
 
-TODO
+```console
+$ docker-compose up
+```
