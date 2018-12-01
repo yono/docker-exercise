@@ -41,5 +41,7 @@ $ docker run --volume $PWD/sinatra:/sinatra --publish 4567:4567 --link="redis:re
 ### docker-compose を使う場合
 
 ```console
+$ git clone https://github.com/yono/docker-exercise
+$ cd docker-exercise
 $ docker-compose up
 ```
